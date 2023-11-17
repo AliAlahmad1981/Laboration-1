@@ -11,20 +11,47 @@
     <title>Game</title>
 </head>
 <body>
+    <div class="startGame">
+        <div>
+            <button onclick="startGame()">Start Game</button>
+        </div>
+    </div>
     <div class="enterNameDiv">
         <div>
-            <label id="name">Enter Name
-                <form>
-                    <input id="name" type="text" value="..." ></input>
-                    <input type="button" value="click" onclick="getName()">
-                </form>
+            <label><h2>Enter Name</h2>
+                    <input id="nameInput" type="text"><br>
+                    <input type="button" value="Enter" onclick="getName()">
             </label>
         </div>
 
     </div>
     <header>
-        <h1>Laboration 1</h1>
+        <div class="headerLeft">
+            <h1>Laboration 1</h1>
+        </div>
+        <div class="headerRight">
+            <h3>Player: </h3>
+            <h3 class="playerName"></h3>
+        </div>
     </header>
+
+    <main>
+        <div class="outputUppgift">
+            <h2>Uppgift</h2>
+            <p></p>
+
+        </div>
+        <div class="outputVal">
+                <h3>val</h3>
+                <p></p>
+        </div>
+        <div class="getInput">
+            <label>Input
+                <input type="text" id="getInput">
+                <button type="button" onclick="getInput()">Enter</button>
+            <label>
+        </div>
+
     </main>
 
     <footer>
