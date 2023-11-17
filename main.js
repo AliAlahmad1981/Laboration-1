@@ -23,10 +23,24 @@ function initGame() {
     randomNumber = Math.floor(Math.random() * 100) + 1;
     activeRooms = ["rum 1", "rum 2", "rum 3"];
     roomTries = [6, 3, 1];
-    // setupEventListeners();
+     setupEventListeners();
 }
 
+// Event listeners
 
+nameInput.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        getName();
+    }
+});
+
+document.querySelector(".getInput").addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        enter === 1 ? getInputGame() : getInput();
+    }
+});
 
 function startGame() {
     document.querySelector(".startGame").style.display = "none";

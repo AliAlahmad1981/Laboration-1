@@ -42,5 +42,10 @@
         "COBOL",
         "ACUCOBOL"
     ],
-    "liveServer.settings.port": 5502
+    "liveServer.settings.port": 5502,
+    "cSpell.words": [
+        "uppgift",
+        "uppgiften",
+        "valen"
+    ]
 }

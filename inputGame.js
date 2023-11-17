@@ -1,10 +1,5 @@
-let roomFunctions = { "rum 1": rum1, "rum 2": rum2, "rum 3": rum3 };
+var roomFunctions = { "rum 1": rum1, "rum 2": rum2, "rum 3": rum3 };
 
-// function getInputGame(room) {
-//     if (activeRooms.includes(room)) {
-//         roomFunctions[room]();
-//     }
-// }
 function getInputGame(room) {
     inputGame = document.querySelector("#getInput").value.trim(); // Get and trim the input
     if (activeRooms.includes(room)) {

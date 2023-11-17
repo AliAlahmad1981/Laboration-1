@@ -1,6 +1,6 @@
 var getInput = function () {
-    // let input = inputId.value.toLowerCase();
-    // inputGame = input; // Set inputGame to the current input value
+    
+    inputGame = input; // Set inputGame to the current input value
     var input = document.querySelector("#getInput").value;
     switch (input) {
         case "öppna":
@@ -84,4 +84,4 @@ var getInput = function () {
             break;
     }
 }
-// inputId.value = ""; // Clear the input field after processing
+inputId.value = ""; // Clear the input field after processing
