@@ -20,27 +20,27 @@ header {
     display: flex;
     flex-grow: 1;
 }
-header h1 {
-    padding: 1rem 0 0 2rem;
-}
+
 header .headerLeft {
     flex-grow: 1;
     display: flex;
     justify-content: flex-start;
+    padding: 1rem 0 0 2rem;
 }
-header .headerRight {
+header .headerPoints {
     display: flex;
     text-align: center;
     justify-content: flex-end;
     margin: 1rem 1rem 1rem 1rem;
 }
-/* MAIN */
-main {
-    background-image: url(../img/prison2.jpg);
-    background-repeat: no-repeat;
-    margin: auto;
-    background-size: cover;
+
+header .headerName {
+    display: flex;
+    text-align: center;
+    justify-content: flex-end;
 }
+/* MAIN */
+
 .enterNameDiv {
     background-color: rgb(59, 59, 59);
     position: absolute;
