@@ -123,7 +123,7 @@ main {
     margin: auto; 
 }
 
-.getInput {
+.getInput , .getInputGame {
     display: flex;
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.7);
@@ -141,12 +141,12 @@ input[type=button] {
     margin-top: 1rem;
 }
 
-.getInput label {
+.getInput , .getInputGame label {
     font-size: 2rem;
     color: whitesmoke;
 }
 
-.getInput input {
+.getInput , .getInputGame input {
     font-size: 2rem;
 }
 

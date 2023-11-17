@@ -41,5 +41,6 @@
         "yml",
         "COBOL",
         "ACUCOBOL"
-    ]
+    ],
+    "liveServer.settings.port": 5502
 }
