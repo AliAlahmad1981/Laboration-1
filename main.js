@@ -55,14 +55,20 @@ function getName() {
     uppgiften.innerText = "Välkommen " + playerName + "! Du står nu framför en stor och tung dörr. Du vet inte vad som väntar bakom dörren.";
     valen.innerText = "För att öppna skriv: öppna";
 }
-
+/**
+ * A function the checks if all rooms are played.
+ * If all rooms are played gameOver function runs.
+ */
 
 function gameOver() {
     if (activeRooms.every(room => room === "")) {
         setTimeout(gameOverText, 4000);
     }
 }
-
+/**
+ * Function that displays gameOver div with refresh button.
+ * Then name and points is shown.
+ */
 function gameOverText() {
     document.querySelector(".gameOver").style.display = "flex";
     document.querySelector(".gameOver h4").innerText = "Bra jobbat " + playerName + "! Du fick " + points + " nycklar";
