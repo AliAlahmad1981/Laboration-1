@@ -1,46 +1,58 @@
 // My global vaiables
 let playerName;
-let points = "0";
+let points = 0;
 let input;
 let inputGame;
-let counter2 = 2;
-let randomNumber;
-let counter6 = 6;
+let enter = 0;
+let randomNumber = Math.floor(Math.random() * 100) + 1;
+let activeRooms = ["rum 1", "rum 2", "rum 3"];
+let roomTries = [6, 3, 1]; // Adjusted number of tries for room 2
 
 
-// My print const shortcuts
+// DOM element references
 const uppgiften = document.querySelector(".uppgift");
 const valen = document.querySelector(".val");
-const printInput = document.querySelector(".getInput");
-const printInputGame = document.querySelector(".getInputGame");
+const inputId = document.querySelector("#getInput");
+const submitButton = document.querySelector(".getInput button");
+const nameInput = document.getElementById("nameInput");
 
 
 
-randomNumber = Math.floor(Math.random() * 100) + 1;
+// Initialize Game
+function initGame() {
+    randomNumber = Math.floor(Math.random() * 100) + 1;
+    activeRooms = ["rum 1", "rum 2", "rum 3"];
+    roomTries = [6, 3, 1];
+    // setupEventListeners();
+}
 
 
-console.log(randomNumber);
 
-/**
- * Removes startdiv
- */
-	function getName() {
-    playerName = document.getElementById("nameInput").value;
-    console.log("hello");
-    console.log(playerName);
-    console.log(points);
+function startGame() {
+    document.querySelector(".startGame").style.display = "none";
+}
+function getName() {
+    playerName = nameInput.value;
+    // playerName = document.getElementById("nameInput").value;
+
     document.querySelector(".enterNameDiv").style.display = "none";
     document.querySelector(".playerName").innerText = playerName;
     document.querySelector(".playerPoints").innerText = points;
-    document.querySelector(".uppgift").innerText = "Välkommen " + playerName + "! Du står nu framför en stor och tung dörr. Du vet inte vad som vänta bakom dörren.";
-    document.querySelector(".val").innerText = "För att öppna skriv: öppna";
+    uppgiften.innerText = "Välkommen " + playerName + "! Du står nu framför en stor och tung dörr. Du vet inte vad som väntar bakom dörren.";
+    valen.innerText = "För att öppna skriv: öppna";
 }
 
-function displayInput() {
-    document.querySelector(".getInput").display = "flex";
-    document.querySelector(".getInputGame").style.display = "none";
+
+function gameOver() {
+    if (activeRooms.every(room => room === "")) {
+        setTimeout(gameOverText, 4000);
+    }
 }
 
-function displayGame() {
+function gameOverText() {
+    document.querySelector(".gameOver").style.display = "flex";
+    document.querySelector(".gameOver h4").innerText = "Bra jobbat " + playerName + "! Du fick " + points + " nycklar";
 
 }
+// Start Game Initialization
+window.onload = initGame;

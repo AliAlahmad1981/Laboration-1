@@ -1,104 +1,116 @@
-// My global vaiables
-let inputGame;
-let counter = 2;
+let roomFunctions = { "rum 1": rum1, "rum 2": rum2, "rum 3": rum3 };
 
-// My print const shortcuts
-const uppgiften = document.querySelector(".uppgift");
-const valen = document.querySelector(".val");
-
-/**
- * 
- *
- * 
- */
-function getInputGame() {
-    console.log(input);
-    inputGame = document.querySelector("#getInputGame").value;
-    switch(input) {
-        case "rum1":
-            rum1();
-            break;
-        case "rum2":
-            rum2();
-            break;
-        case "rum3":
-            rum3();
-            break;
+// function getInputGame(room) {
+//     if (activeRooms.includes(room)) {
+//         roomFunctions[room]();
+//     }
+// }
+function getInputGame(room) {
+    inputGame = document.querySelector("#getInput").value.trim(); // Get and trim the input
+    if (activeRooms.includes(room)) {
+        roomFunctions[room]();
     }
 }
 
 function rum1() {
-    console.log(inputGame);
-    console.log(randomNumber);
-    numberString = '' + randomNumber;
-    console.log(numberString);
-
-    if (counter6 > -1) {
-
+    let numberString = '' + randomNumber;
+    if (roomTries[0] > 0) {
         if (inputGame == numberString) {
+            // Correct guess
+            activeRooms[0] = "";  // Mark room 1 as completed
             uppgiften.innerText = "Rätt " + playerName + "!";
-            valen.innerText = "För att gå vidare till nästa rum skriv: rum2";
+            valen.innerText = "För att gå vidare till nästa rum skriv: rum";
             points++;
-            // printInput.style.display = "flex";
-            // printInputGame.style.display = "none";
             document.querySelector(".playerPoints").innerText = points;
-        } else if (inputGame < numberString) {
-            counter6--;
-            uppgiften.innerText = "Fel! för LÅGT du har " + counter6 + " gisningar kvar." ;
-            valen.innerText = "Välj ett numer mellan : 1-100";
-            // printInput.style.display = "flex";
-            // printInputGame.style.display = "none";
+            submitButton.onclick = getInput;
+            enter = 0;
+            inputId.value = "";
+            gameOver();
+        } else {
+            // Incorrect guess
+            roomTries[0]--;
+            let guessMessage = inputGame < numberString ? "för LÅGT" : "för HÖGT";
+            uppgiften.innerText = `Fel! ${guessMessage} du har ${roomTries[0]} gissningar kvar.`;
+            valen.innerText = "Välj ett nummer mellan : 1-100";
+            inputId.value = "";
 
-        } else if (inputGame > numberString) {
-            counter6--;
-            uppgiften.innerText = "Fel! för HÖGT du har " + counter6 + " gisningar kvar." ;
-            valen.innerText = "Välj ett numer mellan : 1-100";
-            document.querySelector("#getInputGame").value = "";
-
+            if (roomTries[0] === 0) {
+                // Out of tries
+                activeRooms[0] = "";  // Mark room 1 as completed
+                uppgiften.innerText = "Du har förbrukat dina försök. Du fick ingen nyckel.";
+                valen.innerText = "För att gå vidare till nästa rum skriv: rum";
+                submitButton.onclick = getInput;
+                enter = 0;
+                inputId.value = "";
+                gameOver();
+            }
         }
-    }  else {
-            uppgiften.innerText = "Du har förbrukat dina försök. Du fick ingen nyckel.";
-            valen.innerText = "För att gå vidare till nästa rum skriv: rum2";
-            // printInput.style.display = "flex";
-            // printInputGame.style.display = "none";
-        }
+    }
 }
+// Additional cases and logic as per your previous code
+function rum2() {
+    if (roomTries[1] > 0) {
+        if (inputGame == 6) { 
+           
+            activeRooms[1] = "";  
+            uppgiften.innerText = "Rätt " + playerName + "!";
+            valen.innerText = "För att gå vidare till nästa rum skriv: rum";
+            points++;
+            document.querySelector(".playerPoints").innerText = points;
+            submitButton.onclick = getInput;
+            enter = 0;
+            inputId.value = "";
+            gameOver();
+        } else {
+            // Incorrect answer logic
+            roomTries[1]--;
+            uppgiften.innerText = "Fel! Du har " + roomTries[1] + " försök kvar.";
+            valen.innerText = "Välj ett nummer mellan: 1-6";
+            inputId.value = "";
 
+            if (roomTries[1] === 0) {
+                // Out of tries
+                activeRooms[1] = "";  // Mark room 2 as completed
+                uppgiften.innerText = "Du har förbrukat dina försök. Du fick ingen nyckel.";
+                valen.innerText = "För att gå vidare till nästa rum skriv: rum";
+                submitButton.onclick = getInput;
+                enter = 0;
+                inputId.value = "";
+                gameOver();
+            }
+        }
+    }
+}
+function rum3() {
+    if (roomTries[2] > 0) {
+        if (inputGame  == "cool") { // Assuming the correct answer is "vatten"
+            // Correct answer logic
+            activeRooms[2] = "";  // Mark room 3 as completed
+            uppgiften.innerText = "Rätt " + playerName + "!";
+            valen.innerText = "Du har klarat alla rum!";
+            points++;
+            document.querySelector(".playerPoints").innerText = points;
+            submitButton.onclick = getInput;
+            enter = 0;
+            inputId.value = "";
+            gameOver();
+        } else {
+            // Incorrect answer logic
+            roomTries[2]--;
+            uppgiften.innerText = "Fel! Du har " + roomTries[2] + " försök kvar.";
+            valen.innerText = "Försök igen";
+            inputId.value = "";
 
-
-// function rum2() {
-//     let RandNumber;
-//     RandNumber = Math.floor(Math.random * 100);
-
-//     console.log(randNumber);
-// }
-
-
-
-
-// function rum1() {
-//     console.log(inputGame);
-//     console.log(counter2);
-
-//     if (counter2 > -1) {
-
-//         if(inputGame == 6) {
-//             uppgiften.innerText = "Rätt " + playerName + "!";
-//             valen.innerText = "För att gå vidare till nästa rum skriv: rum2";
-//             points++;
-//             printInput.style.display = "flex";
-//             printInputGame.style.display = "none";
-//             document.querySelector(".playerPoints").innerText = points;
-//         } else if (counter2 == 0) {
-//             uppgiften.innerText = "Du har förbrukat dina försök. Du fick ingen nyckel.";
-//             valen.innerText = "För att gå vidare till nästa rum skriv: rum2";
-//             printInput.style.display = "flex";
-//             printInputGame.style.display = "none";
-//         } 
-//         else {
-//             uppgiften.innerText = "Fel! du har " + counter2 + " kvar." ;
-//             document.querySelector("#getInputGame").value = "";
-//             counter2--;
-//         }
-//     }
-// }
+            if (roomTries[2] === 0) {
+                // Out of tries
+                activeRooms[2] = "";  // Mark room 3 as completed
+                uppgiften.innerText = "Du har förbrukat dina försök. Du fick ingen nyckel.";
+                valen.innerText = "Du har klarat alla rum!";
+                submitButton.onclick = getInput;
+                enter = 0;
+                inputId.value = "";
+                gameOver();
+            }
+        }
+    }
+}

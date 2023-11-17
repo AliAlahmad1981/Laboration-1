@@ -1,72 +1,88 @@
-/* HTML */
+/* ALL */
 * {
     padding: 0;
     margin: 0;
-}
-html {
-    background-color: rgb(118, 119, 121);
+  }
+  /* HTML */
+  html {
+    background-color: rgb(30, 77, 169);
     font-family: 'Special Elite', cursive;
-}
-/* BODY */
-body {
+  }
+  
+  /* BODY */
+  body {
     height: 100vh;
-    
-}
-/* HEADER */
-header {
+  }
+  
+  /* HEADER */
+  header {
     background-color: rgba(51, 51, 51, 0.836);
     height: 60px;
     color: whitesmoke;
     display: flex;
     flex-grow: 1;
-}
-
-header .headerLeft {
+  }
+  
+  header .headerLeft {
     flex-grow: 1;
     display: flex;
     justify-content: flex-start;
     padding: 1rem 0 0 2rem;
-}
-header .headerPoints {
+  }
+  
+  header .headerPoints {
     display: flex;
     text-align: center;
     justify-content: flex-end;
     margin: 1rem 1rem 1rem 1rem;
-}
-
-header .headerName {
+  }
+  
+  header .headerName {
     display: flex;
     text-align: center;
     justify-content: flex-end;
-}
-/* MAIN */
-
-.enterNameDiv {
-    background-color: rgb(59, 59, 59);
+    margin: 1rem 1rem 1rem 1rem;
+  }
+  
+  /* MAIN */
+  main {
+   
+    background-repeat: no-repeat;
+    margin: auto;
+    background-size: cover;
+  }
+  
+  .enterNameDiv {
+    background-color: rgb(25, 112, 211);
     position: absolute;
     width: 100%;
     height: 100vh;
-    color: whitesmoke;
+    color: rgb(242, 238, 238);
     display: flex;
     z-index: 500;
     margin: auto;
-}
-.enterNameDiv div {
+  }
+  
+  .enterNameDiv div {
     display: flex;
     flex-grow: 1;
     justify-content: center;
     text-align: center;
     margin: auto;
-}
-.enterNameDiv div .getName {
+  
+  }
+  
+  .enterNameDiv div .getName {
     font-size: 1.5rem;
-}
-.enterNameDiv div #nameInput {
+  }
+  
+  .enterNameDiv div #nameInput {
     margin-top: 2rem;
     font-size: 2rem;
-}
-.startGame {
-    background-color: rgb(59, 59, 59);
+  }
+  
+  .startGame {
+    background-color: rgb(131, 74, 125);
     position: absolute;
     width: 100%;
     height: 100vh;
@@ -74,17 +90,20 @@ header .headerName {
     display: flex;
     z-index: 1000;
     margin: auto;
-}
-.startGame div {
+  }
+  
+  .startGame div {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-grow: 1;
-}
-.startGame button {
+  }
+  
+  .startGame button {
     font-size: 2rem;
-}
-.outputUppgift {
+  }
+  
+  .outputUppgift {
     background-color: whitesmoke;
     max-width: 800px;
     min-height: 260px;
@@ -92,69 +111,113 @@ header .headerName {
     display: flex;
     margin: auto;
     justify-content: center;
-}
-
-.outputUppgift h2 {
+  }
+  
+  .outputUppgift h2 {
     margin: 1rem;
     position: absolute;
-}
-
-.uppgift {
+  }
+  
+  .gameOver {
+    background-color: rgb(59, 59, 59);
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    color: whitesmoke;
+    display: flex;
+    z-index: 1500;
+    margin: auto;
+    display: none;
+  }
+  
+  .gameOver div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    flex-direction: column;
+  }
+  
+  .gameOver div h1,h4 {
+    padding-bottom: 1rem;
+  }
+  
+  .uppgift {
     width: 70%;
     height: 70%;
     margin: auto;
-}
-
-.outputVal {
+  }
+  
+  .outputVal {
     background-color: whitesmoke;
     border: solid rgba(0, 0, 0, 0.322) 10px;
-	
+    max-width: 600px;
+    min-height: 200px;
+    display: flex;
+    margin: auto;
     justify-content: center;
-}
-
-.outputVal h3 {
+  }
+  
+  .outputVal h3 {
     margin: 1rem;
     position: absolute;
-}
-
-.val {
+  }
+  
+  .val {
     width: 70%;
     height: 70%; 
     margin: auto; 
-}
-
-.getInput , .getInputGame {
+  }
+  
+  .getInput, .getInputGame {
     display: flex;
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.7);
     max-width: 600px;
     min-height: 60px;
     margin: auto;
-} 
-
-input[type=button] {
+    align-items: center;
+  }
+  
+  .getInputGame {
+  display: none;
+  }
+  
+  .logo {
+    width: 100px;
+    height: 100px;
+  }
+  
+  input[type=button] {
     color: whitesmoke;
     background-color: rgba(0, 0, 0, 0.7);
     border: none;
     padding: 1rem;
     font-size: 1rem;
     margin-top: 1rem;
-}
-
-.getInput , .getInputGame label {
+  }
+  
+  .getInput, .getInputGame label {
     font-size: 2rem;
     color: whitesmoke;
-}
-
-.getInput , .getInputGame input {
+  }
+  
+  .getInput, .getInputGame, input {
     font-size: 2rem;
-}
-
-button {
+  }
+  
+  button {
     color: whitesmoke;
     background-color: rgba(0, 0, 0, 0.486);
-	 
+    border: none;
+    padding: 1rem;
+  }
+  
+  /* FOOTER */
+  footer {
+    display: flex;
+    align-items: center;
     justify-content: space-between;
     position: relative;
     margin: 0 2rem 0 2rem;
-}
+  }
