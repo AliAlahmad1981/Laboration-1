@@ -27,6 +27,11 @@ function initGame() {
 }
 
 // Event listeners
+/**
+ * 
+ * 
+ * @param {keybordEvent} event Built in javascript event
+ */
 
 nameInput.addEventListener("keyup", function(event) {
     if (event.keyCode === 13) {
@@ -65,6 +70,8 @@ function gameOver() {
         setTimeout(gameOverText, 4000);
     }
 }
+
+
 /**
  * Function that displays gameOver div with refresh button.
  * Then name and points is shown.
